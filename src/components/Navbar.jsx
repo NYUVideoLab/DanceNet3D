@@ -58,7 +58,6 @@ const Navbar = () => {
     { label: 'Highlight Data', id: 'highlight-data' },
     { label: 'Core Features', id: 'core-features' },
     { label: 'Details', id: 'details' },
-    { label: 'Benchmark', id: 'benchmark' },
     { label: 'Download', id: 'download' },
   ];
 

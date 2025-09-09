@@ -8,34 +8,22 @@ const Download = () => {
     {
       title: 'Full Dataset',
       size: '500GB',
-      description: 'Complete dataset with all actors, actions, and annotations',
+      description: 'Complete dataset with all actors and actions. Includes raw images, camera calibration, 3D point cloud, and 3DGS files for each frame.',
       requirements: [
         '500GB storage space',
-        'High-speed internet connection',
         'Python 3.8+',
-        'CUDA-compatible GPU',
       ],
     },
     {
       title: 'Sample Dataset',
       size: '50GB',
-      description: 'Smaller subset for testing and evaluation',
+      description: 'Sample dataset with one actor performing one action. Includes raw images, camera calibration, 3D point cloud, and 3DGS files for each frame.',
       requirements: [
         '50GB storage space',
-        'Standard internet connection',
         'Python 3.8+',
       ],
     },
-    {
-      title: 'Annotations Only',
-      size: '10GB',
-      description: 'Just the annotation files and metadata',
-      requirements: [
-        '10GB storage space',
-        'Standard internet connection',
-        'Python 3.8+',
-      ],
-    },
+
   ];
 
   return (
@@ -65,7 +53,7 @@ const Download = () => {
           Download
         </Typography>
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6, fontSize: '1.25rem', lineHeight: 1.6 }}>
-          [Placeholder] Access our dataset and start exploring the possibilities of high-fidelity dances.
+          Access our dataset and start exploring the possibilities of high-fidelity dances.
         </Typography>
 
         <Grid container spacing={4} justifyContent="center">
