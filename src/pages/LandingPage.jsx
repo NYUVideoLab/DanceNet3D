@@ -126,6 +126,29 @@ const LandingPage = () => {
     "Open source community for invaluable tools and frameworks"
   ];
 
+  const publications = [
+    {
+      text:
+        'Hu, Y., Gong, R., Sun, Q., Wang, Y.: Low latency point cloud rendering with learned splatting. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. Workshop on AIS: Vision, Graphics and AI for Streaming. pp. 5752–5761 (2024)',
+        href: 'https://arxiv.org/abs/2409.16504'
+    },
+    {
+      text:
+        'Hu, Y., Gong, R., Wang, Y.: Bits-to-photon: End-to-end learned scalable point cloud compression for direct rendering (2024), https://arxiv.org/abs/2406.05915, to appear in Prof. ICIP 2025.',
+      href: 'https://arxiv.org/abs/2406.05915'
+    },
+    {
+      text:
+        'Hu, Y., Gong, R., Fan, T., Wang, Y.: Teso: Representing and compressing 3d point cloud scenes with textured surfel octree. arXiv preprint arXiv:2508.07083 (2025)',
+      href: 'https://arxiv.org/abs/2508.07083'
+    },
+    {
+      text:
+        'Fan, T., Hu, Y., Gong, R., Wang, Y.: U-motion: Learned point cloud video compression with ustructured temporal context generation. arXiv preprint arXiv:2411.14501 (2024)',
+        href: 'https://arxiv.org/abs/2411.14501'
+    }
+  ];
+
   return (
     <Box sx={{ 
       minHeight: '100vh', 
@@ -256,7 +279,7 @@ const LandingPage = () => {
               },
             }}
           >
-            PROJECT SUMMARY
+            Project Overview
           </Typography>
           
           <Box sx={{ maxWidth: '850px', mx: 'auto' }}>
@@ -463,7 +486,7 @@ const LandingPage = () => {
               },
             }}
           >
-            Related Publications
+            Research Components
           </Typography>
           
           <Grid container spacing={4} sx={{ width: '100%' }}>
@@ -537,8 +560,64 @@ const LandingPage = () => {
         </Container>
       </Box>
 
+      {/* Publications Section */}
+      <Box id="publications" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
+        <Container maxWidth="lg">
+          <Typography 
+            variant="h3" 
+            component="h2" 
+            gutterBottom 
+            align="center"
+            sx={{
+              mb: 5,
+              position: 'relative',
+              '&::after': {
+                content: '""',
+                position: 'absolute',
+                bottom: -16,
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '60px',
+                height: '4px',
+                background: `linear-gradient(90deg, ${theme.palette.accent.teal}, ${theme.palette.primary.main})`,
+                borderRadius: '2px',
+              },
+            }}
+          >
+            Publications
+          </Typography>
+
+          <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
+            <Box component="ul" sx={{ pl: 3 }}>
+              {publications.map((pub, index) => (
+                <Typography
+                  key={index}
+                  component="li"
+                  variant="body1"
+                  sx={{ fontSize: '1.1rem', lineHeight: 1.7, mb: 2 }}
+                >
+                  {pub.href ? (
+                    <Link
+                      href={pub.href}
+                      underline="hover"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      sx={{ color: 'text.primary' }}
+                    >
+                      {pub.text}
+                    </Link>
+                  ) : (
+                    pub.text
+                  )}
+                </Typography>
+              ))}
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+
       {/* Participants Section */}
-      <Box id="team" sx={{ py: 8, bgcolor: '#fff' }}>
+      <Box id="participants" sx={{ py: 8, bgcolor: '#fff' }}>
         <Container maxWidth="lg">
           <Typography 
             variant="h3" 

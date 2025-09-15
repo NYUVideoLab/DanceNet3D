@@ -53,10 +53,11 @@ const LandingNavbar = () => {
   };
 
   const navItems = [
-    { label: 'Summary', action: () => scrollToSection('summary'), type: 'scroll' },
+    { label: 'Overview', action: () => scrollToSection('summary'), type: 'scroll' },
     { label: 'Press', action: () => scrollToSection('press'), type: 'scroll' },
     { label: 'Research', action: () => scrollToSection('research'), type: 'scroll' },
     { label: 'Participants', action: () => scrollToSection('participants'), type: 'scroll' },
+    { label: 'Publications', action: () => scrollToSection('publications'), type: 'scroll' },
     { label: 'Dataset', action: '/dataset', type: 'link' },
   ];
 
