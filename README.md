@@ -1,3 +1,3 @@
-# Office page for DanceNet3D dataset
+# DanceNet3D Dataset
 
-https://nyuvideolab.github.io/DanceNet3D/
+Official project page: [https://nyuvideolab.github.io/DanceNet3D/](https://nyuvideolab.github.io/DanceNet3D/)
