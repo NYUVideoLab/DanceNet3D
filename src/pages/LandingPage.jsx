@@ -146,7 +146,22 @@ const LandingPage = () => {
       text:
         'Fan, T., Hu, Y., Gong, R., Wang, Y.: U-motion: Learned point cloud video compression with ustructured temporal context generation. arXiv preprint arXiv:2411.14501 (2024)',
         href: 'https://arxiv.org/abs/2411.14501'
-    }
+    },
+    {
+      text:
+        'Chen Li, Tongyu Zong, Yueyu Hu, Yong Liu, and Yao Wang: Spatial Visibility and Temporal Dynamics: Rethinking Field of View Prediction in Adaptive Point Cloud Video Streaming. Proceedings of the 16th ACM Multimedia Systems Conference, April, 2025',
+        href: 'https://arxiv.org/abs/2409.18236'
+    },
+    {
+      text:
+        'Tongyu Zong, Yixiang Mao, Chen Li, Yong Liu, and Yao Wang: Progressive Frame Patching for FoV-based Point Cloud Video Streaming. IEEE Transactions on Multimedia, May 2025',
+        href: 'https://arxiv.org/abs/2303.08336'
+    },
+    {
+      text:
+        'Chen Li, Tingwei Ye, Tongyu Zong, Liyang Sun, Houwei Cao, and Yong Liu: Coffee: Cost-effective Edge Caching for Live 360 Degree Video Streaming. Computer Networks, Volume 269, September 2025',
+        href: 'https://arxiv.org/abs/2312.13470'
+    },
   ];
 
   return (
@@ -517,8 +532,21 @@ const LandingPage = () => {
               <SimpleCard sx={{ width: '100%', minWidth: '100%' }}>
                 <CardContent sx={{ p: 3 }}>
                   <Typography variant="h5" component="h3" gutterBottom color="primary">
-                    FoV-Adaptive Point Cloud Video Streaming
+                    FoV-Adaptive Point Cloud Video Streaming 
                   </Typography>
+
+                  <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      startIcon={<Launch />}
+                      component={Link}
+                      href="https://talbertz.github.io/Progressive-FoV-Adaptive-PCV-Streaming/"
+                      target="_blank"
+                    >
+                      View Research
+                    </Button>
+                  </Box>
                 </CardContent>
               </SimpleCard>
             </Grid>
