@@ -13,6 +13,7 @@ const Download = () => {
         '500GB storage space',
         'Python 3.8+',
       ],
+      link: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D',
     },
     {
       title: 'Sample Dataset',
@@ -22,6 +23,7 @@ const Download = () => {
         '50GB storage space',
         'Python 3.8+',
       ],
+      link: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D',
     },
 
   ];
@@ -87,6 +89,11 @@ const Download = () => {
                     color="primary"
                     fullWidth
                     startIcon={<DownloadIcon />}
+                    component="a"
+                    href={option.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    disabled={!option.link}
                     sx={{ 
                       mt: 'auto',
                       py: 1.5,

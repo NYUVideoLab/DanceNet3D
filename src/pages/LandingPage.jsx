@@ -108,6 +108,22 @@ const LandingPage = () => {
       role: "PhD Student",
     },
     {
+      name: "Moira Zhang",
+      role: "Master Student",
+    },
+    {
+      name: "Adi Somaiah",
+      role: "Master Student",
+    },
+    {
+      name: "Claudia Cerdas Vega",
+      role: "Master Student",
+    },
+    {
+      name: "Marilyn Fang",
+      role: "Master Student",
+    },
+    {
       name: "Mingjian Li",
       role: "Undergraduate Student",
       link: 'https://limjiannn.com/',
@@ -116,6 +132,10 @@ const LandingPage = () => {
       name: "Shihang Wei",
       role: "Undergraduate Student",
       link: 'https://potatwei.github.io/',
+    },
+    {
+      name: "Reese Anspaugh",
+      role: "Undergraduate Student",
     },
   ];
 
@@ -245,7 +265,7 @@ const LandingPage = () => {
                 variant="outlined"
                 size="large"
                 endIcon={<ArrowForward />}
-                href="/project-page/dataset"
+                href="/DanceNet3D/dataset"
                 sx={{
                   borderColor: '#fff',
                   color: '#fff',
@@ -797,7 +817,7 @@ const LandingPage = () => {
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
-              href="/project-page/dataset" 
+              href="/DanceNet3D/dataset" 
               sx={{
                 backgroundColor: theme.palette.secondary.main,
                 color: theme.palette.secondary.contrastText,
