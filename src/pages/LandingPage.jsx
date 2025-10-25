@@ -119,7 +119,7 @@ const LandingPage = () => {
     },
     {
       name: "Reese Anspaugh",
-      role: "Undergraduate Student",
+      // role: "Undergraduate Student",
     },
     {
       name: "Moira Zhang",
