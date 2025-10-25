@@ -5,7 +5,7 @@ import Overview from './Overview';
 import HighlightData from './HighlightData';
 import CoreFeatures from './CoreFeatures';
 import Details from './Details';
-import Benchmark from './Benchmark';
+// import Benchmark from './Benchmark';
 import Download from './Download';
 
 const DatasetPage = () => {
