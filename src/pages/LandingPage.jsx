@@ -108,22 +108,6 @@ const LandingPage = () => {
       role: "PhD Student",
     },
     {
-      name: "Moira Zhang",
-      role: "Master Student",
-    },
-    {
-      name: "Adi Somaiah",
-      role: "Master Student",
-    },
-    {
-      name: "Claudia Cerdas Vega",
-      role: "Master Student",
-    },
-    {
-      name: "Marilyn Fang",
-      role: "Master Student",
-    },
-    {
       name: "Mingjian Li",
       role: "Undergraduate Student",
       link: 'https://limjiannn.com/',
@@ -136,6 +120,22 @@ const LandingPage = () => {
     {
       name: "Reese Anspaugh",
       role: "Undergraduate Student",
+    },
+    {
+      name: "Moira Zhang",
+      // role: "Master Student",
+    },
+    {
+      name: "Adi Somaiah",
+      // role: "Master Student",
+    },
+    {
+      name: "Claudia Cerdas Vega",
+      // role: "Master Student",
+    },
+    {
+      name: "Marilyn Fang",
+      // role: "Master Student",
     },
   ];
 
@@ -717,7 +717,7 @@ const LandingPage = () => {
                     {member.name}
                   </Box>
                 )}
-                {`, ${member.role}`}
+                {member.role ? `, ${member.role}` : ''}
                 {member.labPage ? (
                   <>
                     {`, `}

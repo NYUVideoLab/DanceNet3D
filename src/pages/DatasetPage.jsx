@@ -19,7 +19,7 @@ const DatasetPage = () => {
       <Box component="main">
         <Home />
         <Overview />
-        <HighlightData />
+        {/* <HighlightData /> */}
         <CoreFeatures />
         <Details />
         {/* <Benchmark /> */}
