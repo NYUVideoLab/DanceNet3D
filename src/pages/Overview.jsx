@@ -1,14 +1,36 @@
-import { Box, Container, Typography, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Container, Typography, List, ListItem, ListItemText, Link } from '@mui/material';
+
+const RefNote = ({ num }) => (
+  <Link
+    href="#references"
+    underline="none"
+    sx={{ 
+      fontSize: '0.75em', 
+      verticalAlign: 'super', 
+      lineHeight: 0, 
+      color: 'primary.main',
+      fontWeight: 700,
+      cursor: 'pointer',
+      '&:hover': { textDecoration: 'underline' },
+    }}
+    onClick={(e) => {
+      e.preventDefault();
+      document.getElementById('references')?.scrollIntoView({ behavior: 'smooth' });
+    }}
+  >
+    [{num}]
+  </Link>
+);
 
 const Overview = () => {
   const features = [
     {
       title: 'High Diversity',
-      description: 'We collected comprehensive dance performances featuring 50+ dance styles including chacha, basic, suzieq, attitude, promenade, with performance durations ranging from 10 seconds to 2 minutes.',
+      description: 'We collected comprehensive dance performances featuring 47 dance styles including chacha, basic, suzieq, attitude, promenade, with performance durations ranging from 10 seconds to 2 minutes.',
     },
     {
       title: 'High Fidelity',
-      description: 'We construct a professional multi-view capture system containing 26 synchronized cameras. Each frame is trained with 3D Gaussian Splatting (3DGS) models, providing high-fidelity representations for real-time rendering and novel view synthesis.',
+      description: <>We construct a professional multi-view capture system containing 29 synchronized cameras. Each frame is trained with 3D Gaussian Splatting (3DGS)<RefNote num={1} /> models, providing high-fidelity representations for real-time rendering and novel view synthesis.</>,
     },
     // {
     //   title: 'Rich Annotations',
@@ -17,7 +39,7 @@ const Overview = () => {
   ];
 
   return (
-    <Box id="overview" sx={{ py: 8, bgcolor: '#f8f9fa' }}>
+    <Box id="overview" sx={{ py: 8, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
         <Typography 
           variant="h3" 
@@ -45,7 +67,7 @@ const Overview = () => {
         
         <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
           <Typography variant="body1" paragraph align="justify" sx={{ mb: 4, fontSize: '1.2rem', lineHeight: 1.7 }}>
-            We present <strong>DanceNet3D</strong>, a large-scale, high-fidelity repository of neural dance rendering represented by 3D Gaussian Splatting of human dance performers. Our dataset provides comprehensive dance performances with:
+            We present <strong>DanceNet3D</strong>, a large-scale, high-fidelity repository of neural dance rendering represented by 3D Gaussian Splatting<RefNote num={1} /> of human dance performers. Our dataset provides comprehensive dance performances with:
           </Typography>
 
           <Box sx={{ pl: 2 }}>
@@ -59,7 +81,7 @@ const Overview = () => {
           </Box>
 
           <Typography variant="body1" paragraph align="justify" sx={{ mt: 4, fontSize: '1.2rem', lineHeight: 1.7 }}>
-            This dataset serves as a comprehensive resource for researchers working on 3D human rendering and dance analysis, with particular focus on multi-view dance capture and 3D Gaussian Splatting applications.
+            This dataset serves as a comprehensive resource for researchers working on 3D human rendering and dance analysis, with particular focus on multi-view dance capture and 3D Gaussian Splatting<RefNote num={1} /> applications.
           </Typography>
         </Box>
       </Container>

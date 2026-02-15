@@ -6,26 +6,14 @@ import CodeIcon from '@mui/icons-material/Code';
 const Download = () => {
   const downloadOptions = [
     {
-      title: 'Full Dataset',
-      size: '500GB',
-      description: 'Complete dataset with all actors and actions. Includes raw images, camera calibration, 3D point cloud, and 3DGS files for each frame.',
+      title: 'Full Dataset on Huggingface',
+      size: '120GB',
+      description: 'Complete dataset with all actors and actions. Includes images, camera calibration, per-frame masks, and per-frame 3DGS models.',
       requirements: [
-        '500GB storage space',
-        'Python 3.8+',
+        '120GB storage space',
       ],
       link: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D',
     },
-    {
-      title: 'Sample Dataset',
-      size: '50GB',
-      description: 'Sample dataset with one actor performing one action. Includes raw images, camera calibration, 3D point cloud, and 3DGS files for each frame.',
-      requirements: [
-        '50GB storage space',
-        'Python 3.8+',
-      ],
-      link: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D',
-    },
-
   ];
 
   return (

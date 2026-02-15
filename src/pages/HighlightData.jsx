@@ -1,6 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Box, Container, Typography, Card, CardMedia, CardContent, useTheme, IconButton } from '@mui/material';
-import rotatingGif from '../assets/rotating.gif';
+import attitudePromenadeGif from '../assets/data_preview/AttitudePromenade.gif';
+import biancaGoldenChimeeGif from '../assets/data_preview/BiancaGolden_Chimee.gif';
+import chachaGif from '../assets/data_preview/Chacha.gif';
+import houseFootworkAdvancedGif from '../assets/data_preview/HouseFootworkAdvanced.gif';
+import russiaCostumeGif from '../assets/data_preview/RobertRubama_RussiaCostume.gif';
+import bartSimpsonGif from '../assets/data_preview/BartSimpson.gif';
 import { styled } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -67,106 +72,97 @@ const HighlightData = () => {
   const theme = useTheme();
   const scrollContainerRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const isScrollingRef = useRef(false);
+  const scrollTimeoutRef = useRef(null);
 
   const items = [
     {
       id: 1,
-      title: "Pirouettes",
-      image: rotatingGif,
+      title: "Attitude Promenade",
+      image: attitudePromenadeGif,
       category: "novel-view"
     },
     {
       id: 2,
-      title: "Basic Suzie Q",
-      image: rotatingGif,
+      title: "Chimee",
+      image: biancaGoldenChimeeGif,
       category: "novel-pose"
     },
     {
       id: 3,
-      title: "Son Basic",
-      image: rotatingGif,
-      category: "novel-id"
-    },
-    {
-      id: 4,
-      title: "Flair",
-      image: rotatingGif,
-      category: "special-effect"
-    },
-    {
-      id: 5,
       title: "Chacha",
-      image: rotatingGif,
+      image: chachaGif,
       category: "novel-view"
     },
     {
-      id: 6,
+      id: 4,
+      title: "House Footwork Advanced",
+      image: houseFootworkAdvancedGif,
+      category: "novel-pose"
+    },
+    {
+      id: 5,
       title: "Russia Costume",
-      image: rotatingGif,
+      image: russiaCostumeGif,
       category: "novel-pose"
     },
     {
-      id: 7,
-      title: "Salsa Basic",
-      image: rotatingGif,
-      category: "novel-pose"
-    },
-    {
-      id: 8,
-      title: "Circle Turns",
-      image: rotatingGif,
-      category: "novel-pose"
-    },
-    {
-      id: 9,
-      title: "Grand Plies",
-      image: rotatingGif,
+      id: 6,
+      title: "Bart Simpson",
+      image: bartSimpsonGif,
       category: "novel-pose"
     },
   ];
 
   const cardWidth = 300 + 24; // card width + gap
+  const COPIES = 5;
   
-  // Create infinite scroll by multiplying items (more copies for smoother infinite scroll)
-  const infiniteItems = [...items, ...items, ...items, ...items, ...items];
+  // Create infinite scroll by multiplying items
+  const infiniteItems = Array.from({ length: COPIES }, () => items).flat();
 
   // Initialize scroll position to the middle set of items
   useEffect(() => {
     if (scrollContainerRef.current) {
-      const initialScroll = items.length * 2 * cardWidth; // Start at middle of 5 copies
+      const initialScroll = items.length * 2 * cardWidth;
       scrollContainerRef.current.scrollLeft = initialScroll;
     }
   }, []);
+
+  // Silently reposition to the middle set after smooth scroll ends
+  const resetToMiddleIfNeeded = () => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const scrollLeft = container.scrollLeft;
+    const currentIndex = Math.round(scrollLeft / cardWidth);
+    const totalItems = infiniteItems.length;
+
+    if (currentIndex < items.length || currentIndex >= totalItems - items.length) {
+      // Calculate equivalent position in the middle copy
+      const normalizedIndex = ((currentIndex % items.length) + items.length) % items.length;
+      container.scrollLeft = (normalizedIndex + items.length * 2) * cardWidth;
+    }
+  };
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
       const scrollLeft = container.scrollLeft;
       const currentIndex = Math.round(scrollLeft / cardWidth);
-      
-      // Update active index for dots
-      setActiveIndex(currentIndex % items.length);
-      
-      // Seamless infinite scroll - reset position when getting close to edges
-      const totalItems = infiniteItems.length;
-      const midPoint = Math.floor(totalItems / 2);
-      
-      // If we're too close to the beginning, jump to equivalent position later
-      if (currentIndex <= items.length) {
-        const newPosition = (currentIndex + items.length * 2) * cardWidth;
-        container.scrollLeft = newPosition;
-      }
-      // If we're too close to the end, jump to equivalent position earlier  
-      else if (currentIndex >= totalItems - items.length) {
-        const newPosition = (currentIndex - items.length * 2) * cardWidth;
-        container.scrollLeft = newPosition;
-      }
+
+      // Update active dot
+      setActiveIndex(((currentIndex % items.length) + items.length) % items.length);
+
+      // Debounce: wait until scrolling stops, then silently reposition
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = setTimeout(() => {
+        resetToMiddleIfNeeded();
+      }, 150);
     }
   };
 
   const scrollToIndex = (index) => {
     if (scrollContainerRef.current) {
-      // Always scroll to the middle set of items
       const targetScroll = (index + items.length * 2) * cardWidth;
       scrollContainerRef.current.scrollTo({
         left: targetScroll,

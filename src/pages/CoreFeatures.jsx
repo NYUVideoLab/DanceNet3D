@@ -1,5 +1,27 @@
-import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Chip, Link } from '@mui/material';
 import { useState, useEffect, useRef } from 'react';
+
+const RefNote = ({ num }) => (
+  <Link
+    href="#references"
+    underline="none"
+    sx={{ 
+      fontSize: '0.75em', 
+      verticalAlign: 'super', 
+      lineHeight: 0, 
+      color: 'primary.main',
+      fontWeight: 700,
+      cursor: 'pointer',
+      '&:hover': { textDecoration: 'underline' },
+    }}
+    onClick={(e) => {
+      e.preventDefault();
+      document.getElementById('references')?.scrollIntoView({ behavior: 'smooth' });
+    }}
+  >
+    [{num}]
+  </Link>
+);
 
 const CoreFeatures = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -7,9 +29,9 @@ const CoreFeatures = () => {
   const sectionRef = useRef(null);
 
   const stats = [
-    { number: 50, label: 'Motions', color: 'secondary', suffix: '' },
-    { number: 26, label: 'Views', color: 'success', suffix: '' },
-    { number: 4000000, label: 'Frames', color: 'warning', suffix: '' },
+    { number: 47, label: 'Motions', color: 'secondary', suffix: '' },
+    { number: 29, label: 'Views', color: 'success', suffix: '' },
+    { number: 990000, label: 'Images', color: 'warning', suffix: '+' },
     // { number: 4096, label: 'Max Resolution', color: 'error', suffix: '' },
   ];
 
@@ -72,11 +94,11 @@ const CoreFeatures = () => {
   const features = [
     {
       title: 'Multi-Camera Dance Capture',
-      description: 'Comprehensive dance dataset captured with 26 synchronized cameras featuring over 50 dance styles including chacha, suzieq, attitude, and more. Each performance ranges from 10 seconds to 2 minutes.',
+      description: 'Comprehensive dance dataset captured with 29 synchronized cameras featuring over 47 dance styles including chacha, suzieq, attitude, and more. Each performance ranges from 10 seconds to 2 minutes.',
     },
     {
       title: '3D Gaussian Splatting Training',
-      description: 'Advanced 3DGS models trained for each frame, providing high-fidelity representations for real-time rendering and novel view synthesis of human dance performances.',
+      description: <>Fine-tuned 3DGS<RefNote num={1} /> training pipeline optimized for human dancing, delivering high-fidelity representations for real-time rendering and novel view synthesis of human dance performances.</>,
     },
     {
       title: 'Diverse Dance Styles',
@@ -84,12 +106,12 @@ const CoreFeatures = () => {
     },
     {
       title: 'High-Quality Annotations',
-      description: 'Includes precise foreground masks specifically optimized for 3D human body scenarios and dance motion analysis.',
+      description: <>Includes precise foreground masks generated using SAM 3<RefNote num={2} />, with frame-by-frame manual quality review to ensure accuracy and consistency.</>,
     },
   ];
 
   return (
-    <Box id="core-features" ref={sectionRef} sx={{ py: 8, bgcolor: '#f8f9fa' }}>
+    <Box id="core-features" ref={sectionRef} sx={{ py: 8, bgcolor: '#fff' }}>
       <Container maxWidth="lg">
         <Typography 
           variant="h3" 

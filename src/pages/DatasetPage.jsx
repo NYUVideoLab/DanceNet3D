@@ -7,6 +7,7 @@ import CoreFeatures from './CoreFeatures';
 import Details from './Details';
 // import Benchmark from './Benchmark';
 import Download from './Download';
+import References from './References';
 
 const DatasetPage = () => {
   return (
@@ -19,11 +20,12 @@ const DatasetPage = () => {
       <Box component="main">
         <Home />
         <Overview />
-        {/* <HighlightData /> */}
+        <HighlightData />
         <CoreFeatures />
         <Details />
         {/* <Benchmark /> */}
         <Download />
+        <References />
       </Box>
     </Box>
   );

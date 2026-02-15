@@ -1,14 +1,36 @@
-import { Box, Container, Typography, Grid, Card, CardContent, Paper, Divider, List, ListItem, ListItemIcon, ListItemText, Chip } from '@mui/material';
+import { Box, Container, Typography, Grid, Card, CardContent, Paper, Divider, List, ListItem, ListItemIcon, ListItemText, Chip, Link } from '@mui/material';
 import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build, BuildCircle, FourKRounded, FourGMobiledata, FourMp, FourKOutlined } from '@mui/icons-material';
+
+const RefNote = ({ num }) => (
+  <Link
+    href="#references"
+    underline="none"
+    sx={{ 
+      fontSize: '0.75em', 
+      verticalAlign: 'super', 
+      lineHeight: 0, 
+      color: 'primary.main',
+      fontWeight: 700,
+      cursor: 'pointer',
+      '&:hover': { textDecoration: 'underline' },
+    }}
+    onClick={(e) => {
+      e.preventDefault();
+      document.getElementById('references')?.scrollIntoView({ behavior: 'smooth' });
+    }}
+  >
+    [{num}]
+  </Link>
+);
 
 const Details = () => {
   const technicalSections = [
     {
-      title: 'Capture System',
+      title: 'Multi-Camera Capture',
       icon: <CameraAlt sx={{ fontSize: 40, color: '#1976d2' }} />,
       description: 'Professional multi-camera setup for high-fidelity data acquisition',
       details: [
-        'Hardware Configuration: 26 synchronized cameras at 1280×800 resolution',
+        'Hardware Configuration: 29 synchronized cameras at 1280×800 resolution',
         'Capture Rate: 30 FPS with hardware-level synchronization',
         'Lighting Setup: Professional LED array with controlled illumination',
         'Coverage: 360-degree capture volume with optimal viewpoint distribution',
@@ -16,46 +38,44 @@ const Details = () => {
       ],
     },
     {
-      title: 'Data Preprocessing',
-      icon: <Code sx={{ fontSize: 40, color: '#388e3c' }} />,
-      description: 'Advanced pipeline for data cleaning, calibration, and preparation',
+      title: 'Camera Pose & Color Calibration',
+      icon: <Visibility sx={{ fontSize: 40, color: '#388e3c' }} />,
+      description: 'Precise camera calibration for multi-view consistency',
       details: [
-        'Background Subtraction: Automated foreground mask generation',
+        'Camera Pose Estimation: Intrinsic and extrinsic parameter estimation in COLMAP format',
+        'Color Calibration: Cross-camera color consistency correction',
         'Quality Control: Automated detection and filtering of corrupted frames',
-        'Calibration: Precise camera intrinsic and extrinsic parameter estimation in COLMAP format',
         'Dense Point Cloud Generation: 3D point cloud generation from multi-view images with OpenMVS',
       ],
     },
     {
-      title: '4D Gaussian Splatting',
-      icon: <FourKOutlined sx={{ fontSize: 40, color: '#f57c00' }} />,
-      description: 'Compact scene representation with real-time rendering capability',
+      title: 'Mask Generation',
+      icon: <Build sx={{ fontSize: 40, color: '#f57c00' }} />,
+      description: <>SAM 3<RefNote num={2} />-powered foreground mask extraction for 3D human body scenarios</>,
       details: [
-        'Training Pipeline: Multi-view consistency optimization with differentiable rendering',
-        'Deformation Network: Deformation network to model the dynamic scene',
-        'Batch Training: Batch size of 30 frames to improve training stability',
-        
+        'Background Subtraction: Automated foreground mask generation',
+        'Mask Refinement: Precise boundary for human subjects',
+        'Manual Review & Quality Control: Human-in-the-loop verification to ensure mask accuracy and correct edge cases',
       ],
-
     },
     {
-      title: '3DGS Extraction',
+      title: '3DGS Training',
       icon: <ThreeDRotation sx={{ fontSize: 40, color: '#d32f2f' }} />,
-      description: 'High-quality 3DGS extraction from 4DGS for real-time rendering',
+      description: <>3D Gaussian Splatting<RefNote num={1} /> model training for high-fidelity rendering</>,
       details: [
-        'Gaussian Primitives: Adaptive density control with position, scale, and rotation',
-        'Extraction: 3DGS extraction from 4DGS',
-        'Export: Perframe 3DGS for traditional 3DGS pipeline',
-        'Rendering: Real-time rendering with SuperSplat',
+        <>Per-Frame 3DGS: Per-frame 3D Gaussian Splatting<RefNote num={1} /> for traditional 3DGS pipeline</>,
+        <>Efficient Pruning: Reduced Gaussian counts using Speedy-Splat's<RefNote num={3} /> pruning method</>,
+        'Clean Edges: Sharp object boundaries achieved with random background training method',
+        <>Fidelity Improvement: Enhanced rendering quality with e-rank regularization<RefNote num={4} /></>,
       ],
     }
   ];
 
   const workflowSteps = [
-    { step: 1, title: 'Multi-Camera Capture', description: 'Synchronized recording from 60 cameras' },
-    { step: 2, title: 'Data Preprocessing', description: 'Calibration, filtering, and annotation' },
-    { step: 3, title: '4DGS Training', description: 'Dynamic scene representation learning' },
-    { step: 4, title: '3DGS Extraction', description: 'Static scene representation extraction' }
+    { step: 1, title: 'Multi-Camera Capture', description: 'Synchronized recording from 29 cameras' },
+    { step: 2, title: 'Camera Pose & Color Calibration', description: 'Precise camera calibration for multi-view consistency' },
+    { step: 3, title: 'Mask Generation', description: 'Automated mask extraction with manual quality review' },
+    { step: 4, title: '3DGS Training', description: '3D Gaussian Splatting model training' }
   ];
 
   return (
@@ -87,7 +107,7 @@ const Details = () => {
         
         <Typography variant="body1" paragraph align="center" sx={{ mb: 6, maxWidth: '800px', mx: 'auto', fontSize: '1.15rem', lineHeight: 1.6 }}>
           Our comprehensive technical pipeline combines cutting-edge hardware with advanced algorithms 
-          to deliver unprecedented quality in human-centric neural rendering and mesh generation.
+          to deliver unprecedented quality in human-centric neural rendering.
         </Typography>
 
         {/* Workflow Overview */}
