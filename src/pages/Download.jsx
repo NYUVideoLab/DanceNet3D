@@ -1,28 +1,32 @@
-import { Box, Container, Typography, Grid, Card, CardContent, Button, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import StorageIcon from '@mui/icons-material/Storage';
+import { Box, Container, Typography, Grid, Button, Link as MuiLink } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
-import CodeIcon from '@mui/icons-material/Code';
+import StorageIcon from '@mui/icons-material/Storage';
+import ViewInArIcon from '@mui/icons-material/ViewInAr';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+
+const sectionCard = {
+  border: '1px solid',
+  borderColor: 'divider',
+  borderRadius: 2,
+  p: 3,
+  bgcolor: '#fafafa',
+};
+
+const dlBtn = {
+  textTransform: 'none',
+  py: 1,
+  fontWeight: 600,
+};
 
 const Download = () => {
-  const downloadOptions = [
-    {
-      title: 'Full Dataset on Huggingface',
-      size: '120GB',
-      description: 'Complete dataset with all actors and actions. Includes images, camera calibration, per-frame masks, and per-frame 3DGS models.',
-      requirements: [
-        '120GB storage space',
-      ],
-      link: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D',
-    },
-  ];
-
   return (
     <Box id="download" sx={{ py: 8, bgcolor: '#fff' }}>
-      <Container maxWidth="lg">
-        <Typography 
-          variant="h3" 
-          component="h2" 
-          gutterBottom 
+      <Container maxWidth="md">
+        <Typography
+          variant="h3"
+          component="h2"
+          gutterBottom
           align="center"
           sx={{
             mb: 6,
@@ -35,68 +39,130 @@ const Download = () => {
               transform: 'translateX(-50%)',
               width: '60px',
               height: '4px',
-              background: 'linear-gradient(90deg, #FFB81C, #ff9800)', // Gold to Orange
+              background: 'linear-gradient(90deg, #FFB81C, #ff9800)',
               borderRadius: '2px',
             },
           }}
         >
           Download
         </Typography>
-        <Typography variant="body1" paragraph align="center" sx={{ mb: 6, fontSize: '1.25rem', lineHeight: 1.6 }}>
-          Access our dataset and start exploring the possibilities of high-fidelity dances.
-        </Typography>
+        <Box sx={{ textAlign: 'center', mb: 5 }}>
+          <Typography variant="body1" sx={{ mb: 2, fontSize: '1.15rem', lineHeight: 1.6 }}>
+            Our dataset is hosted on{' '}
+            <MuiLink href="https://huggingface.co/datasets/nyuvideolab/danceNet3D" target="_blank" rel="noopener noreferrer" sx={{ fontWeight: 600 }}>
+              Hugging Face
+            </MuiLink>
+            . Access and start exploring the possibilities of high-fidelity dances.
+          </Typography>
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+          <Button
+            variant="outlined"
+            startIcon={<MenuBookIcon />}
+            endIcon={<OpenInNewIcon sx={{ fontSize: 16 }} />}
+            component="a"
+            href="https://huggingface.co/datasets/nyuvideolab/danceNet3D/blob/main/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ textTransform: 'none', fontWeight: 600 }}
+          >
+            Read the Dataset README & License
+          </Button>
+          </Box>
+        </Box>
 
-        <Grid container spacing={4} justifyContent="center">
-          {downloadOptions.map((option, index) => (
-            <Grid item xs={12} sm={10} md={4} key={index}>
-              <Card sx={{ height: '100%', maxWidth: 400, mx: 'auto', display: 'flex', flexDirection: 'column', transition: 'none', '&:hover': { transform: 'none', boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.05)' } }}>
-                <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                  <Box>
-                    <Typography variant="h5" component="h3" gutterBottom>
-                      {option.title}
-                    </Typography>
-                    <Typography variant="h6" color="primary" gutterBottom>
-                      {option.size}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary" paragraph sx={{ fontSize: '1rem', lineHeight: 1.6 }}>
-                      {option.description}
-                    </Typography>
-                    <List dense>
-                      {option.requirements.map((req, idx) => (
-                        <ListItem key={idx}>
-                          <ListItemIcon>
-                            <StorageIcon fontSize="small" />
-                          </ListItemIcon>
-                          <ListItemText primary={req} />
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Box>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          {/* Full Dataset */}
+          <Box sx={sectionCard}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+              <StorageIcon color="primary" />
+              <Typography variant="h6" sx={{ fontWeight: 700 }}>Full Dataset</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              Complete dataset with all actors, actions, images, camera calibration, per-frame masks, and per-frame 3DGS models.
+            </Typography>
+            <Button
+              variant="contained"
+              startIcon={<DownloadIcon />}
+              component="a"
+              href="https://huggingface.co/datasets/nyuvideolab/danceNet3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={dlBtn}
+            >
+              Download All
+            </Button>
+          </Box>
+
+          {/* 3DGS */}
+          <Box sx={sectionCard}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+              <ViewInArIcon color="primary" />
+              <Typography variant="h6" sx={{ fontWeight: 700 }}>3D Gaussian Splatting Models</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+              Pre-trained 3DGS files. After downloading, you can view them interactively with{' '}
+              <MuiLink href="https://superspl.at/editor/" target="_blank" rel="noopener noreferrer">
+                SuperSplat Editor
+              </MuiLink>.
+            </Typography>
+            <Button
+              variant="contained"
+              startIcon={<DownloadIcon />}
+              component="a"
+              href="https://huggingface.co/datasets/nyuvideolab/danceNet3D/tree/main/3dgs"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ ...dlBtn, mt: 1 }}
+            >
+              Download 3DGS
+            </Button>
+          </Box>
+
+          {/* Per-Session Downloads */}
+          <Box sx={sectionCard}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+              <DownloadIcon color="primary" />
+              <Typography variant="h6" sx={{ fontWeight: 700 }}>Per-Session Downloads</Typography>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              Download individual recording sessions instead of the full dataset.
+            </Typography>
+            <Grid container spacing={1.5}>
+              {[
+                { label: 'Session 4', href: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D/tree/main/s4' },
+                { label: 'Session 5', href: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D/tree/main/s5' },
+                { label: 'Session 6', href: 'https://huggingface.co/datasets/nyuvideolab/danceNet3D/tree/main/s6' },
+              ].map((s) => (
+                <Grid item xs="auto" key={s.label}>
                   <Button
-                    variant="contained"
-                    color="primary"
-                    fullWidth
+                    variant="outlined"
+                    size="small"
                     startIcon={<DownloadIcon />}
                     component="a"
-                    href={option.link}
+                    href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    disabled={!option.link}
-                    sx={{ 
-                      mt: 'auto',
-                      py: 1.5,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
+                    sx={{ textTransform: 'none', fontWeight: 600 }}
                   >
-                    Download
+                    {s.label}
                   </Button>
-                </CardContent>
-              </Card>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
+          </Box>
+        </Box>
+
+        <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 4 }}>
+          Please read the{' '}
+          <MuiLink
+            href="https://huggingface.co/datasets/nyuvideolab/danceNet3D/blob/main/README.md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            dataset README
+          </MuiLink>{' '}
+          for detailed descriptions and agree to the license before using the data.
+        </Typography>
       </Container>
     </Box>
   );
