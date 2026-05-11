@@ -1,5 +1,5 @@
-import { Box, Container, Typography, Grid, Card, CardContent, Paper, Divider, List, ListItem, ListItemIcon, ListItemText, Chip, Link } from '@mui/material';
-import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build, BuildCircle, FourKRounded, FourGMobiledata, FourMp, FourKOutlined } from '@mui/icons-material';
+import { Box, Container, Typography, Grid, Card, CardContent, Paper, Divider, List, ListItem, ListItemIcon, ListItemText, Chip, Link, Button } from '@mui/material';
+import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build, BuildCircle, FourKRounded, FourGMobiledata, FourMp, FourKOutlined, GitHub } from '@mui/icons-material';
 
 const RefNote = ({ num }) => (
   <Link
@@ -105,10 +105,33 @@ const Details = () => {
           Technical Details
         </Typography>
         
-        <Typography variant="body1" paragraph align="center" sx={{ mb: 6, maxWidth: '800px', mx: 'auto', fontSize: '1.15rem', lineHeight: 1.6 }}>
-          Our comprehensive technical pipeline combines cutting-edge hardware with advanced algorithms 
+        <Typography variant="body1" paragraph align="center" sx={{ mb: 4, maxWidth: '800px', mx: 'auto', fontSize: '1.15rem', lineHeight: 1.6 }}>
+          Our comprehensive technical pipeline combines cutting-edge hardware with advanced algorithms
           to deliver unprecedented quality in human-centric neural rendering.
         </Typography>
+
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            startIcon={<GitHub />}
+            component={Link}
+            href="https://github.com/NYUVideoLab/dancenet3d-processing-pipeline"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              borderWidth: 2,
+              px: 4,
+              py: 1.5,
+              fontSize: '1.05rem',
+              fontWeight: 600,
+              '&:hover': { borderWidth: 2 },
+            }}
+          >
+            View Code on GitHub
+          </Button>
+        </Box>
 
         {/* Workflow Overview */}
         <Paper elevation={3} sx={{ py: 4, px: 8, mb: 6, bgcolor: '#f8f9fa' }}>
