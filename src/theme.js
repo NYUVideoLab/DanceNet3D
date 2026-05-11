@@ -81,7 +81,7 @@ const theme = createTheme({
           textTransform: 'none',
           fontWeight: 600,
           padding: '10px 24px',
-          transition: 'all 0.3s ease-in-out',
+          transition: 'all 0.15s ease-in-out',
         },
         contained: {
           boxShadow: 'none',

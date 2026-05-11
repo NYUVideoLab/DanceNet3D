@@ -48,7 +48,7 @@ const Dot = styled(Box)(({ active, theme }) => ({
   height: 10,
   borderRadius: '50%',
   backgroundColor: active ? theme.palette.primary.main : theme.palette.grey[300],
-  transition: 'all 0.3s ease',
+  transition: 'all 0.15s ease',
   cursor: 'pointer',
   '&:hover': {
     backgroundColor: active ? theme.palette.primary.dark : theme.palette.grey[400],

@@ -156,7 +156,7 @@ const LandingNavbar = () => {
             onClick={handleDrawerToggle}
             sx={{ 
               color: isScrolled ? '#57068C' : '#ffffff',
-              transition: 'all 0.3s ease-in-out',
+              transition: 'all 0.15s ease-in-out',
               marginLeft: 'auto',
               '&:hover': {
                 backgroundColor: isScrolled 
@@ -184,7 +184,7 @@ const LandingNavbar = () => {
                   borderRadius: 2,
                   px: 2,
                   py: 1,
-                  transition: 'all 0.3s ease-in-out',
+                  transition: 'all 0.15s ease-in-out',
                   '&:hover': {
                     backgroundColor: isScrolled 
                       ? 'rgba(87, 6, 140, 0.1)'

@@ -256,7 +256,7 @@ const LandingPage = () => {
                   fontSize: '1.2rem',
                   fontWeight: 600,
                   borderRadius: 3,
-                  transition: 'all 0.3s ease',
+                  transition: 'all 0.15s ease',
                 }}
               >
                 View Research
@@ -280,7 +280,7 @@ const LandingPage = () => {
                   fontSize: '1.2rem',
                   fontWeight: 600,
                   borderRadius: 3,
-                  transition: 'all 0.3s ease',
+                  transition: 'all 0.15s ease',
                 }}
               >
                 Explore Dataset
@@ -835,7 +835,7 @@ const LandingPage = () => {
                 fontWeight: 800,
                 borderRadius: 6,
                 minWidth: '300px',
-                transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                transition: 'all 0.15s cubic-bezier(0.4, 0, 0.2, 1)',
                 boxShadow: '0 12px 30px rgba(0, 0, 0, 0.3)',
                 background: `linear-gradient(135deg, ${theme.palette.secondary.main} 0%, ${theme.palette.secondary.dark} 100%)`,
                 position: 'relative',
@@ -848,7 +848,7 @@ const LandingPage = () => {
                   width: '100%',
                   height: '100%',
                   background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
-                  transition: 'left 0.8s ease',
+                  transition: 'left 0.4s ease',
                 },
                 '&:hover::before': {
                   left: '100%',
