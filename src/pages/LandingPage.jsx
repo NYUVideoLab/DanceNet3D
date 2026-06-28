@@ -188,6 +188,11 @@ const LandingPage = () => {
       href: 'https://openaccess.thecvf.com/content/CVPR2026W/3DMV/papers/Wei_DanceNet3D_A_3D_Dance_Dataset_with_Multi-View_Videos_and_3DGS_CVPRW_2026_paper.pdf',
       award: 'Best Paper Award, 3DMV Workshop @ CVPR 2026',
     },
+    {
+      text:
+        'Ran Gong, Zhehong Ren, Tingyu Fan, Yueyu Hu, and Yao Wang: SplatTree: Voxel-Based Multi-Resolution Decoding for Feed-Forward 3D Gaussian Generation. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), pp. 210–218, 2026',
+      href: 'https://openaccess.thecvf.com/content/CVPR2026W/3DMV/html/Gong_SplatTree_Voxel-Based_Multi-Resolution_Decoding_for_Feed-Forward_3D_Gaussian_Generation_CVPRW_2026_paper.html',
+    },
   ];
 
   return (
