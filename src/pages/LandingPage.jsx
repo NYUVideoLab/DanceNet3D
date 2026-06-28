@@ -182,6 +182,12 @@ const LandingPage = () => {
         'Chen Li, Tingwei Ye, Tongyu Zong, Liyang Sun, Houwei Cao, and Yong Liu: Coffee: Cost-effective Edge Caching for Live 360 Degree Video Streaming. Computer Networks, Volume 269, September 2025',
         href: 'https://arxiv.org/abs/2312.13470'
     },
+    {
+      text:
+        'Shihang Wei*, Mingjian Li*, Ran Gong, Yueyu Hu, and Yao Wang: DanceNet3D: A 3D Dance Dataset with Multi-View Videos and 3DGS Reconstructions. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPRW), 2026. (*Equal contribution)',
+      href: 'https://openaccess.thecvf.com/content/CVPR2026W/3DMV/papers/Wei_DanceNet3D_A_3D_Dance_Dataset_with_Multi-View_Videos_and_3DGS_CVPRW_2026_paper.pdf',
+      award: 'Best Paper Award, 3DMV Workshop @ CVPR 2026',
+    },
   ];
 
   return (
@@ -656,6 +662,17 @@ const LandingPage = () => {
                     </Link>
                   ) : (
                     pub.text
+                  )}
+                  {pub.award && (
+                    <>
+                      {' — '}
+                      <Box
+                        component="span"
+                        sx={{ color: theme.palette.primary.main, fontWeight: 700 }}
+                      >
+                        {pub.award}
+                      </Box>
+                    </>
                   )}
                 </Typography>
               ))}

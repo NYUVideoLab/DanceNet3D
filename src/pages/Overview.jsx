@@ -67,7 +67,7 @@ const Overview = () => {
         
         <Box sx={{ maxWidth: '900px', mx: 'auto' }}>
           <Typography variant="body1" paragraph align="justify" sx={{ mb: 4, fontSize: '1.2rem', lineHeight: 1.7 }}>
-            We present <strong>DanceNet3D</strong>, a large-scale, high-fidelity repository of neural dance rendering represented by 3D Gaussian Splatting<RefNote num={1} /> of human dance performers. Our dataset provides comprehensive dance performances with:
+            We present <strong>DanceNet3D</strong><RefNote num={5} />, a large-scale, high-fidelity repository of neural dance rendering represented by 3D Gaussian Splatting<RefNote num={1} /> of human dance performers. Our dataset provides comprehensive dance performances with:
           </Typography>
 
           <Box sx={{ pl: 2 }}>

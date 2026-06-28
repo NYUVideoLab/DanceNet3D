@@ -30,6 +30,13 @@ const References = () => {
       venue: 'NeurIPS 2024',
       url: 'https://arxiv.org/abs/2406.11672',
     },
+    {
+      id: 5,
+      authors: 'Wei, S., Li, M., Gong, R., Hu, Y., & Wang, Y.',
+      title: 'DanceNet3D: A 3D Dance Dataset with Multi-View Videos and 3DGS Reconstructions',
+      venue: 'CVPR 2026 Workshop on 3D Multimedia (3DMV) — Best Paper Award',
+      url: 'https://openaccess.thecvf.com/content/CVPR2026W/3DMV/papers/Wei_DanceNet3D_A_3D_Dance_Dataset_with_Multi-View_Videos_and_3DGS_CVPRW_2026_paper.pdf',
+    },
   ];
 
   return (

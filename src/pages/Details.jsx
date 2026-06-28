@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Grid, Card, CardContent, Paper, Divider, List, ListItem, ListItemIcon, ListItemText, Chip, Link, Button } from '@mui/material';
-import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build, BuildCircle, FourKRounded, FourGMobiledata, FourMp, FourKOutlined, GitHub } from '@mui/icons-material';
+import { CameraAlt, Code, ThreeDRotation, Memory, Speed, Storage, Visibility, Build, BuildCircle, FourKRounded, FourGMobiledata, FourMp, FourKOutlined, GitHub, PictureAsPdf } from '@mui/icons-material';
 
 const RefNote = ({ num }) => (
   <Link
@@ -110,7 +110,7 @@ const Details = () => {
           to deliver unprecedented quality in human-centric neural rendering.
         </Typography>
 
-        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap', mb: 6 }}>
           <Button
             variant="outlined"
             color="primary"
@@ -130,6 +130,26 @@ const Details = () => {
             }}
           >
             View Code on GitHub
+          </Button>
+          <Button
+            variant="outlined"
+            color="primary"
+            size="large"
+            startIcon={<PictureAsPdf />}
+            component={Link}
+            href="https://openaccess.thecvf.com/content/CVPR2026W/3DMV/papers/Wei_DanceNet3D_A_3D_Dance_Dataset_with_Multi-View_Videos_and_3DGS_CVPRW_2026_paper.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              borderWidth: 2,
+              px: 4,
+              py: 1.5,
+              fontSize: '1.05rem',
+              fontWeight: 600,
+              '&:hover': { borderWidth: 2 },
+            }}
+          >
+            Read the Paper
           </Button>
         </Box>
 
