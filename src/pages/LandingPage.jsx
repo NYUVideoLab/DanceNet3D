@@ -115,7 +115,7 @@ const LandingPage = () => {
     {
       name: "Shihang Wei",
       role: "Undergraduate Student",
-      link: 'https://potatwei.github.io/',
+      link: 'https://shihangvicwei.github.io/portfolio/',
     },
     {
       name: "Reese Anspaugh",
