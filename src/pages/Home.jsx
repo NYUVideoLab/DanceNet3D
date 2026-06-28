@@ -81,6 +81,18 @@ const Home = () => {
               DanceNet3D
             </Typography>
             <Typography
+              sx={{
+                mb: 3,
+                color: 'rgba(255, 255, 255, 0.7)',
+                fontWeight: 400,
+                fontStyle: 'italic',
+                fontSize: { xs: '0.85rem', md: '0.95rem' },
+                letterSpacing: '0.01em',
+              }}
+            >
+              Best Paper Award, 3DMV Workshop @ CVPR 2026
+            </Typography>
+            <Typography
               variant="h4"
               component="h2"
               sx={{
